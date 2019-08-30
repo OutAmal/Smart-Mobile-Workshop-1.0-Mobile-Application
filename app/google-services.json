@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "108124768702",
+    "firebase_url": "https://pannedata.firebaseio.com",
+    "project_id": "pannedata",
+    "storage_bucket": "pannedata.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108124768702:android:b7d827b7252837f9",
+        "android_client_info": {
+          "package_name": "com.example.oncfapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108124768702-ee4oqsojic364kkldjfb3hrebvpf6n1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oncfapp",
+            "certificate_hash": "7b79a6411323113c995cc3b8f22691f4ff2eb14b"
+          }
+        },
+        {
+          "client_id": "108124768702-fevrshid6a5qk3vpkanfvtjpqr422sia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-QDt4swNyGvEFEP9s3z4znDra2SKmrG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108124768702-fevrshid6a5qk3vpkanfvtjpqr422sia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

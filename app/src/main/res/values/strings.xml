@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ONCF</string>
+    <integer name="train1">101</integer>
+</resources>
