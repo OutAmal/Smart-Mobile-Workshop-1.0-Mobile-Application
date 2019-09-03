@@ -113,34 +113,19 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             notifyDataSetChanged();
         } */
     }
-
-
-
-
-
-
-
     private ObjectAnimator changeRotate(RelativeLayout button, float to , float from) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(button,"rotation",from,to);
         animator.setDuration(300);
         animator.setInterpolator(Utils.createInterpolator(Utils.LINEAR_INTERPOLATOR));
         return animator;
     }
-
-
-
-
     @Override
-
-
-
     public int getItemCount() {
         return items.size();
     }
     public void removeItem ( int position){
         items.remove(position);
         notifyItemRemoved(position);
-
     }
 
 

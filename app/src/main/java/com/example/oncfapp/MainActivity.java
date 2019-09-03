@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         train1.setOnClickListener(this); train2.setOnClickListener(this); train3.setOnClickListener(this); train4.setOnClickListener(this); train5.setOnClickListener(this); train6.setOnClickListener(this); train7.setOnClickListener(this); train8.setOnClickListener(this); train9.setOnClickListener(this); train10.setOnClickListener(this);
         train11.setOnClickListener(this); train12.setOnClickListener(this); train13.setOnClickListener(this); train14.setOnClickListener(this); train15.setOnClickListener(this); train16.setOnClickListener(this); train17.setOnClickListener(this); train18.setOnClickListener(this); train19.setOnClickListener(this); train20.setOnClickListener(this);
         train21.setOnClickListener(this); train22.setOnClickListener(this); train23.setOnClickListener(this); train24.setOnClickListener(this);
+        // Set the size of  item's list in drawable image badges
         numberOfitems("Z2M-101", train1);
         numberOfitems("Z2M-102", train2);
         numberOfitems("Z2M-103", train3);numberOfitems("Z2M-104", train4);numberOfitems("Z2M-105", train5);numberOfitems("Z2M-106", train6);
         numberOfitems("Z2M-107", train7);numberOfitems("Z2M-108", train8);numberOfitems("Z2M-109", train9);numberOfitems("Z2M-110", train10);numberOfitems("Z2M-111", train11);numberOfitems("Z2M-112", train12);numberOfitems("Z2M-113", train13);numberOfitems("Z2M-114", train14);
         numberOfitems("Z2M-115", train15);numberOfitems("Z2M-116", train16);numberOfitems("Z2M-117", train17);numberOfitems("Z2M-118", train18);numberOfitems("Z2M-119", train19);numberOfitems("Z2M-120", train20);
         numberOfitems("Z2M-121", train21);numberOfitems("Z2M-122", train22);numberOfitems("Z2M-123", train23);numberOfitems("Z2M-124", train24);
-        //if (train1.getBadgeValue()!= 0){
 
 
     }
@@ -263,6 +263,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         handler.postDelayed(runnable, 1000);
 
     }
+      // put the sum of train's breakdown in Icon badge
     public void IconBadge(int count ){
         try {
             Badges.setBadge(MainActivity.this, count);

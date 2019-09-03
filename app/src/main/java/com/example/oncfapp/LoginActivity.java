@@ -39,42 +39,15 @@ public class LoginActivity extends AppCompatActivity {
         Bar = findViewById(R.id.progressBar3);
         Login = findViewById(R.id.btn);
         sp = getSharedPreferences("login", MODE_PRIVATE);
-       // if (sp.getBoolean("logged", false)) {
-         //   goToMainActivity();
-       // }
-
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginUserAccount();
-                /*String username = UserName.getText().toString().trim();
-                String passeword = PassWord.getText().toString().trim();
-                if (username.isEmpty() || passeword.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Aucun Champs n'est rempli",Toast.LENGTH_SHORT).show();
-                }
-                if (username.equals("oncf") && passeword.equals("admin")) {
-                    Toast.makeText(LoginActivity.this, "connexion réussie",Toast.LENGTH_SHORT).show();
-                    goToMainActivity();
-                    sp.edit().putBoolean("logged",true).apply();
-                    //invoke the SecondActivity.
-
-                    finish();
-                }
-                else{
-                    Toast.makeText(LoginActivity.this, "Username/Password incorrect",Toast.LENGTH_SHORT).show();
-                }
-            }
-        }); */
-
             }
         });
     }
-    public void goToMainActivity(){
-        Intent i=new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(i);
-        finish();
-    }
+
     private void loginUserAccount() {
         Bar.setVisibility(View.VISIBLE);
 
@@ -90,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
-
+        // check whether the email and password are Firebase approved
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

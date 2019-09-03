@@ -46,10 +46,10 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Intent intent = getIntent();
+        // check which train is selected
         String i = intent.getStringExtra("TrainId");
         String Z2M_id = "Z2M-1".concat(i) ;
 
-        // setUpRecyclerView();
         if (i == "01") {
             UpDateDocuments(Z2M_id, list);
 
@@ -142,9 +142,8 @@ public class Main2Activity extends AppCompatActivity {
                             item item = change.getDocument().toObject(item.class);
 
                             switch (change.getType()) {
-
+                             // check if there is a new breakdown
                                 case ADDED: {
-                                    addNotification(string, item.getDetails(),"URGENT ! " + string + " EST EN PANNE");
                                     if (list.isEmpty()){
                                         list.add(item);
                                     }
@@ -156,43 +155,29 @@ public class Main2Activity extends AppCompatActivity {
                                         }
                                     }
                                     }
+                                    addNotification(string,  " EST EN PANNE");
                                 }
                                 break;
+                                // check if a breakdown state has been modified from On to OFF , if so delete it
+                                // from Firestore and Android RecyclerView.
                                 case MODIFIED: {
-                                    addNotification(string, " "+item.getDetails(),"URGENT ! " + string + " : PANNE CORRIGEE");
+                                    addNotification(string , "UNE PANNE EST CORRIGEE");
 
                                     // remove the item who s field has been changed for my recyclerView
 
                                     for (int i = 0; i < list.size(); i++) {
 
                                         if ( list.get(i).getCode().equals (item.getCode())  ) {
-
-
                                             int myPosition = list.indexOf(list.get(i));
                                             adapter.removeItem(myPosition);
                                             adapter.notifyDataSetChanged();
-
                                         }
-
                                     }
 
                                     String groupId = change.getDocument().getId();
                                     FirebaseFirestore.getInstance()
                                             .collection(string)
                                             .document(groupId).delete();
-                                            /* .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                 @Override
-                                                 public void onComplete(@NonNull Task<Void> task) {
-                                                     if (task.isSuccessful()){
-                                                         adapter.removeItem(position);
-                                                         adapter.notifyItemRemoved(position);
-                                                         Log.d(TAG, "item is deleted");
-                                                     }
-                                                     else {Log.d(TAG, "item not deleted");
-                                                     }
-                                                 }
-                                             });
-                                }*/
                                 }
                                     break;
 
@@ -216,17 +201,18 @@ public class Main2Activity extends AppCompatActivity {
 
                 });
     }
-    private void addNotification (String string, String text, String text1){
+    // For notifications when a breakdown happened or deleted
+    private void addNotification (String string , String message){
 
          // build the notification
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(Main2Activity.this , CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_train_black_24dp)
-                .setContentTitle(text1 )
-                .setContentText(text)
+                .setContentTitle( "URGENT !!" )
+                .setContentText( string + message )
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        // create an intent
+        // create an intent to train list activity
 
         Intent intentfornotif = new Intent(this, MainActivity.class);
         intentfornotif.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -242,7 +228,7 @@ public class Main2Activity extends AppCompatActivity {
         notificationManager.notify(m, builder.build());
 
     }
-
+    // to Save the state of list when activity is stopped
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -270,12 +256,6 @@ public class Main2Activity extends AppCompatActivity {
             list = mBundleState.getParcelableArrayList(LIST_INSTANCE_STATE);
         }
     }
-
-
-
-
-
-
 }
 
 
