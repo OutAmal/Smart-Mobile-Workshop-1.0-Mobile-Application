@@ -163,8 +163,6 @@ public class Main2Activity extends AppCompatActivity {
                                 case MODIFIED: {
                                     addNotification(string , "UNE PANNE EST CORRIGEE");
 
-                                    // remove the item who s field has been changed for my recyclerView
-
                                     for (int i = 0; i < list.size(); i++) {
 
                                         if ( list.get(i).getCode().equals (item.getCode())  ) {
