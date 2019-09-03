@@ -11,7 +11,8 @@ sur la table des utilisateurs autorisés à lire dans Firebase.
 ![alt text](C:\Users\PERS\Downloads\2.jpg)
 ## Third Activiy
 Une fois la connexion est réussite, on arrivera à la 3eme activity qui affiche 24 icons chacune represente une rame, et sur cet icone un badge  qui decrit le nombre des pannes sur la rame. Ces icons sont Clickabales.
-![alt text](C:\Users\PERS\Downloads\3.jpg)
+![3](https://user-images.githubusercontent.com/43651267/64194375-44af0500-ce7f-11e9-8206-86e4241c98d0.jpg)
+
 ## Fourth Activity
 Un click sur l'icon representant une rame permet de naviger à la derniere avtivity qui affiche une recyclerView, tel que chaque item d'elle 
 represente une panne et ses informations. 
